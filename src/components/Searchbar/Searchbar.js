@@ -51,12 +51,12 @@ class Searchbar extends Component {
     render() {
         return (
             <header className={css.Searchbar} onSubmit={this.handleSubmitForm}>
-                <form className="form" >
-                    <button type="submit" className="button">
-                        <span className="button-label">Search</span>
+                <form className={css.SearchForm} >
+                    <button type="submit" className={css.SearchFormButton}>
+                        <span className={css.SearchFormButtonLabel}>Search</span>
                     </button>
                     <input
-                        className="input"
+                        className={css.SearchFormInput}
                         name="search"
                         value={this.state.imageName}
                         onChange={this.handleChange}

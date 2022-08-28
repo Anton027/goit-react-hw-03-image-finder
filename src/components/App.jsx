@@ -3,6 +3,7 @@ import { GlobalStyle } from './GlobalStyle';
 import { ToastContainer } from 'react-toastify';
 import ImageGallery from "./ImageGallery";
 import Searchbar from "./Searchbar";
+import css from './App.module.css'
 
 
 export class App extends Component {
@@ -21,7 +22,7 @@ export class App extends Component {
   render() {
     const { imageName, page } = this.state;
     return (
-      <div>
+      <div className={css.App}>
         <Searchbar onSubmit={this.handleSubmit} />
         <ImageGallery imageName={imageName} page={page}  />
         <GlobalStyle />

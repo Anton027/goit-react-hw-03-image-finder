@@ -1,4 +1,4 @@
-
+import css from './ImageGallery.module.css'
 import ImageGalleryItem from "components/ImageGalleryItem";
 import { Component } from "react";
 import Loader from "components/Loader";
@@ -63,7 +63,7 @@ class ImageGallery extends Component {
         if (status === 'resolved') {
             return (
                 <>
-                    <ul className="gallery">
+                    <ul className={css.ImageGallery}>
                         {images.map( images  => 
                             <ImageGalleryItem key={images.id} webformatURL={images.webformatURL} onClick={this.toggleModal} />
                         )}
