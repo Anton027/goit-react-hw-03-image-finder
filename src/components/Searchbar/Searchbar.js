@@ -1,4 +1,7 @@
 import { Component } from "react";
+import { toast } from 'react-toastify';
+import css from './SearchBar.module.css'
+import 'react-toastify/dist/ReactToastify.css';
 // const Searchbar = ({value, onChange}) => {
 //     return (
 //         <header className="searchbar">
@@ -25,30 +28,29 @@ import { Component } from "react";
 // }
 class Searchbar extends Component {
     state = {
-        name: ''
+        imageName: ''
     }
 
     handleChange = evnt => {
-        console.log(evnt.currentTarget.value);
-        const { name, value } = evnt.currentTarget
-        this.setState({
-            [name] : value
-        })
+        this.setState({ imageName: evnt.currentTarget.value.toLowerCase()})
     }
     handleSubmitForm = (e) => {
         e.preventDefault();
-        this.props.onSubmit(this.state);
-
-        // this.reset();
+        if (this.state.imageName.trim() === '') {
+            toast('Please write correct picture name');
+            return;
+        }
+        this.props.onSubmit(this.state.imageName);
+        this.reset();
     }
     reset = () => {
         this.setState({
-            name: '',
+            imageName: '',
         })
     }
     render() {
         return (
-            <header className="searchbar">
+            <header className={css.Searchbar} onSubmit={this.handleSubmitForm}>
                 <form className="form" >
                     <button type="submit" className="button">
                         <span className="button-label">Search</span>
@@ -56,7 +58,7 @@ class Searchbar extends Component {
                     <input
                         className="input"
                         name="search"
-                        value={this.state.name}
+                        value={this.state.imageName}
                         onChange={this.handleChange}
                         type="text"
                         autoComplete="off"

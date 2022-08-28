@@ -1,9 +1,12 @@
-const ImageGalleryItem = ({ webformatURL }) => {
-    return (
-            <li  className="gallery-item">
-                <img src={webformatURL} alt="" />
-            </li>
 
+
+
+const ImageGalleryItem = ({ webformatURL, onClick }) => {
+    return (
+        <li  className="gallery-item">
+            <img src={webformatURL} alt="" onClick={onClick} />
+        </li>
     )
+    
 }
 export default ImageGalleryItem;
