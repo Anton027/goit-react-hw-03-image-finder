@@ -1,12 +1,10 @@
 import { Component } from "react";
 import { GlobalStyle } from './GlobalStyle';
 import { ToastContainer } from 'react-toastify';
-
 import {  updateFetch } from 'Services/Fetch';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from "components/Loader";
-
 import Button from "components/Button";
 import Modal from "components/Modal";
 import ImageGallery from "./ImageGallery";
