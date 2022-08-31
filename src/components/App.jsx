@@ -23,7 +23,7 @@ export class App extends Component {
 
   };
 
-  componentDidUpdate(prevState) {
+  componentDidUpdate(prevProps,prevState) {
     const { imageName, page } = this.state;
     if (prevState.imageName !== imageName || prevState.page !== page) {
       updateFetch(imageName, page).then(response => {
@@ -34,7 +34,7 @@ export class App extends Component {
     }
 
   }
-  onLoadMore = e => {
+  onLoadMore = () => {
     this.setState(state => ({ page: state.page + 1 }));
   };
 
