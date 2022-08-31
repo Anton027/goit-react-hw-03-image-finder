@@ -23,7 +23,7 @@ export class App extends Component {
 
   };
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevState) {
     const { imageName, page } = this.state;
     if (prevState.imageName !== imageName || prevState.page !== page) {
       updateFetch(imageName, page).then(response => {
