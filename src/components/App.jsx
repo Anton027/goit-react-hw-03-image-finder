@@ -1,9 +1,7 @@
 import { Component } from "react";
 import { GlobalStyle } from './GlobalStyle';
 import { ToastContainer } from 'react-toastify';
-import {  updateFetch } from 'Services/Fetch';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import {  updateFetch } from 'services/Fetch';
 import Loader from "components/Loader";
 import Button from "components/Button";
 import Modal from "components/Modal";
@@ -24,11 +22,7 @@ export class App extends Component {
     currentImage: {},
 
   };
-  // componentDidMount() {
-  //   baseFetch().then(response => {
-  //     this.setState({ images: response.data.hits });
-  //   });
-  // }
+
   componentDidUpdate(prevProps, prevState) {
     const { imageName, page } = this.state;
     if (prevState.imageName !== imageName || prevState.page !== page) {
@@ -41,24 +35,18 @@ export class App extends Component {
 
   }
   onLoadMore = e => {
-    e.preventDefault();
     this.setState(state => ({ page: state.page + 1 }));
   };
 
 
-  handleSubmitForm = (e) => {
-        e.preventDefault();
-        if (e.currentTarget.input.value.trim() === '') {
-            toast('Please write correct picture name');
-            return;
-        }
-
+  handleSubmitForm = imageName => {
     this.setState({
-        imageName: e.currentTarget.input.value,
+        imageName,
         page: 1,
         images: [],
       })
   }
+
   toggleModal = () => {
     this.setState(({showModal}) => ({
       showModal: !showModal
