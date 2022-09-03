@@ -1,7 +1,8 @@
 import { Component } from "react";
 import { GlobalStyle } from './GlobalStyle';
 import { ToastContainer } from 'react-toastify';
-import { updateFetch } from "./api/Fetch";
+import { updateFetch } from "services/Fetch";
+
 import Loader from "components/Loader";
 import Button from "components/Button";
 import Modal from "components/Modal";
